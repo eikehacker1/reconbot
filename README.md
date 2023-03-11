@@ -9,7 +9,7 @@ cd reconbot
 
 chdmod +x *
 
-./install.sh 
+./instal.sh 
 
 ./recon.sh -d target.com 
 
