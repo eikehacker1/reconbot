@@ -16,9 +16,13 @@ while getopts ":d:" opt; do
   esac
 done
 
-echo "$domain" | assetfinder | httprobe | waybackurls | tee -a mass.txt
+echo "$domain" | assetfinder | tee -a domains.txt  |  httprobe | tee -a http.txt | waybackurls | tee -a mass.txt
 
 wait
+
+mkdir output
+
+cp *.txt /output 
 
 cat mass.txt | gf xss | tee -a xss.txt
 cat mass.txt | gf redirect | tee -a redirect.txt
