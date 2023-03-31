@@ -10,7 +10,8 @@ go install github.com/tomnomnom/httprobe@latest
 go install github.com/ferreiraklet/airixss@latest
 go install github.com/tomnomnom/qsreplace@latest
 go install github.com/tomnomnom/anew@latest
-
+go install github.com/tomnomnom/qsreplace@latest
+go install github.com/ferreiraklet/airixss@latest
 wait
 
 
