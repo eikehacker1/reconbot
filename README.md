@@ -7,7 +7,7 @@ git clone https://github.com/eikehacker1/reconbot.git
 
 cd reconbot 
 
-chdmod +x *
+chmod +x *
 
 ./instal.sh 
 
